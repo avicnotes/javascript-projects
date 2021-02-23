@@ -24,6 +24,7 @@ console.log("Welcome to the console based game");
 
 setTimeout(() => { 
   var username = prompt("Enter your name to begin playing");
+  username = username[0].toUpperCase() + username.substring(1); 
   setTimeout(() => { 
     console.log(username + " Its time to answer your first question." );
     questions();
@@ -31,10 +32,11 @@ setTimeout(() => {
 }, 2000);
 
 function questions() {
-  for(count=0; count<= quiz.length; count++){
+  for(count=0; count< quiz.length; count++){
 	console.log(count);
-        var firstAnswer = prompt(quiz[count][0]);
-        console.log( firstAnswer + " is " + firstQuestion(firstAnswer));
+        var userAnswer = prompt(quiz[count][0]);
+        userAnswer = userAnswer[0].toUpperCase() + userAnswer.substring(1);
+        console.log( userAnswer + " is " + checkAnswer(userAnswer, count));
   }
 }
 
@@ -43,8 +45,8 @@ function questions() {
 // }
 
 
-function firstQuestion(answer) {
-  if (answer== quiz[0][1]) {
+function checkAnswer(userAnswer, qNumber) {
+  if (userAnswer=== quiz[qNumber][1]) {
     return "correct" ;
   }
   else {
