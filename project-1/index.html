@@ -18,24 +18,33 @@
   </section>
 <script>
 
-var quiz = {
-  q1: ["What goes around and comes around", "Moonshine"],
-  q2: [ "Why did the chicken cross the road", "Priorities"]
-}
+var quiz = [ ["What goes around and comes around", "Moonshine"], [ "Why did the chicken cross the road", "Priorities"]
+]
 console.log("Welcome to the console based game");
+
 setTimeout(() => { 
   var username = prompt("Enter your name to begin playing");
   setTimeout(() => { 
     console.log(username + " Its time to answer your first question." );
-    setTimeout(() => {
-     var firstAnswer = prompt(quiz.q1[0]);
-     console.log( firstAnswer + " is " + firstQuestion(firstAnswer));
-    }, 2000);
+    questions();
   }, 2000);
 }, 2000);
 
+function questions() {
+  for(count=0; count<= quiz.length; count++){
+	console.log(count);
+        var firstAnswer = prompt(quiz[count][0]);
+        console.log( firstAnswer + " is " + firstQuestion(firstAnswer));
+  }
+}
+
+//function question(number) {
+//  return quiz[number][0];
+// }
+
+
 function firstQuestion(answer) {
-  if (answer== quiz.q1[1]) {
+  if (answer== quiz[0][1]) {
     return "correct" ;
   }
   else {
