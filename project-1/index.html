@@ -20,6 +20,12 @@
 
 var quiz = [ ["What goes around and comes around", "Moonshine"], [ "Why did the chicken cross the road", "Priorities"]
 ]
+
+var points = {
+  correct: 0,
+  wrong: 0
+}
+
 console.log("Welcome to the console based game");
 
 setTimeout(() => { 
@@ -31,25 +37,26 @@ setTimeout(() => {
   }, 2000);
 }, 2000);
 
+// Serve questions and call function to check answers
 function questions() {
   for(count=0; count< quiz.length; count++){
-	console.log(count);
+	// console.log(count);
         var userAnswer = prompt(quiz[count][0]);
         userAnswer = userAnswer[0].toUpperCase() + userAnswer.substring(1);
         console.log( userAnswer + " is " + checkAnswer(userAnswer, count));
   }
+  console.log("Thank you for taking this quiz!!!");
+  console.log("You got " + points.correct + " correct answers ");
 }
-
-//function question(number) {
-//  return quiz[number][0];
-// }
 
 
 function checkAnswer(userAnswer, qNumber) {
   if (userAnswer=== quiz[qNumber][1]) {
+    points.correct++;
     return "correct" ;
   }
   else {
+    points.wrong++;
     return "incorrect";
   }
 }
