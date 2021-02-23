@@ -17,20 +17,25 @@
     </div>
   </section>
 <script>
+
+var quiz = {
+  q1: ["What goes around and comes around", "Moonshine"],
+  q2: [ "Why did the chicken cross the road", "Priorities"]
+}
 console.log("Welcome to the console based game");
 setTimeout(() => { 
   var username = prompt("Enter your name to begin playing");
   setTimeout(() => { 
     console.log(username + " Its time to answer your first question." );
     setTimeout(() => {
-     var firstAnswer = prompt("What goes around and comes around");
+     var firstAnswer = prompt(quiz.q1[0]);
      console.log( firstAnswer + " is " + firstQuestion(firstAnswer));
     }, 2000);
   }, 2000);
 }, 2000);
 
 function firstQuestion(answer) {
-  if (answer=="moonshine") {
+  if (answer== quiz.q1[1]) {
     return "correct" ;
   }
   else {
