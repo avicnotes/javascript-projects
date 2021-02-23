@@ -16,11 +16,29 @@
       </p>
     </div>
   </section>
-  <script>
+<script>
+console.log("Welcome to the console based game");
+setTimeout(() => { 
+  var username = prompt("Enter your name to begin playing");
+  setTimeout(() => { 
+    console.log(username + " Its time to answer your first question." );
+    setTimeout(() => {
+     var firstAnswer = prompt("What goes around and comes around");
+     console.log( firstAnswer + " is " + firstQuestion(firstAnswer));
+     console.log( firstAnswer + " is incorrect");
+    }, 2000);
+  }, 2000);
+}, 2000);
 
+function firstQuestion(answer) {
+  if answer=="moonshine" {
+    return "correct" ;
+  }
+  else {
+    return "incorrect";
+  }
+}
 
-
-
-  </script>
+</script>
   </body>
 </html>
