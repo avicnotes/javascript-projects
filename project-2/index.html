@@ -21,7 +21,10 @@
     </div>
     <div class="container tasks-holder">
       <ul id="tasks-list">
-        <li class="task-item">First task element.</li>
+        <li class="task-item">
+          First task element.
+         <button class="task-button">X</button>
+        </li>
       </ul>
     </div>
   </section>
@@ -29,6 +32,7 @@
 <script>
 var tasksList = document.getElementById("tasks-list");
 var taskItem = document.getElementsByClassName("task-item");
+var taskButton = document.getElementsByClassName("task-button");
 
 // Console based manipulation 
 // Create DOM element
@@ -75,6 +79,7 @@ function addTask(){
   tasksDatabase.push({task: taskInput.value, state:0});
   readTasks();
 }
+
 function updateTask(){
 // Click on task text to update it or checkbox to update if it is done or not
 
@@ -84,7 +89,7 @@ function updateTask(){
 function removeAllChildren(parent){
   while(parent.firstChild){
     parent.removeChild(parent.firstChild);
-  } 
+  }
 }
 
 function readTasks(){
@@ -98,20 +103,41 @@ function readTasks(){
     console.log(tasksDatabase[i].task)
     var text = document.createTextNode(tasksDatabase[i].task);
     li.classList.add("taskItem");
+    li.addEventListener("click", function(){ console.log("li"); });
     li.appendChild(text);
     tasksList.appendChild(li);
+  // add a button
+    var button = document.createElement("button");
+    button.innerHTML = "X";
+    button.classList.add("task-button");
+    button.addEventListener("click", function(){ console.log("b"); });
+    // li.appendChild(button);
+    li.insertAdjacentElement("afterend", button);
+    console.log(li)
   }
 }
 
+
+
 function removeTask(){
 // click on the x mark at the end to remove the item
+// Click on the task to delete it.
+
 }
 
 const load = () => {
   console.log("load event detected!");
   readTasks();
+
 }
 window.onload = load;
+// Listen to events listened on list items
+// taskButton.addEventListener("click", function(){
+//  console.log(1);
+// });
+
+
+
 </script>
   </body>
 </html>
