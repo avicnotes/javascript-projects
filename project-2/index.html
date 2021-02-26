@@ -23,8 +23,12 @@
       <ul id="tasks-list">
         <li class="task-item">
           First task element.
-         <button class="task-button">X</button>
         </li>
+        <button class="task-button">X</button>
+        <li class="task-item">
+          First task element.
+        </li>
+        <button class="task-button">X</button>
       </ul>
     </div>
   </section>
@@ -77,7 +81,7 @@ function addTask(){
 // Add task to an array of tasks, each task has a 1 or O to indicate that the task is done
 // [{task:"", state:1}, task:"", state:0}]
   tasksDatabase.push({task: taskInput.value, id: tasksDatabase.length+1, state:0});
-  readTasks();
+  // readTasks();
 }
 
 function updateTask(){
@@ -103,14 +107,12 @@ function readTasks(){
     console.log(tasksDatabase[i].id)
     var text = document.createTextNode(tasksDatabase[i].task);
     li.classList.add("taskItem");
-    li.addEventListener("click", function(){ console.log(tasksDatabase.id); });
     li.appendChild(text);
     tasksList.appendChild(li);
   // add a button
     var button = document.createElement("button");
     button.innerHTML = "X";
     button.classList.add("task-button");
-    button.addEventListener("click", function(){ console.log(tasksDatabase.id); });
     li.insertAdjacentElement("afterend", button);
     console.log(li)
   }
@@ -130,10 +132,6 @@ const load = () => {
 
 }
 window.onload = load;
-// Listen to events listened on list items
-// taskButton.addEventListener("click", function(){
-//  console.log(1);
-// });
 
 
 
