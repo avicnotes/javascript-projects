@@ -66,6 +66,7 @@ var tasksDatabase = [
 taskForm.addEventListener("submit", function(e){
   e.preventDefault();
   addTask();
+readTask();
 });
 
 function addTask(){
@@ -82,12 +83,21 @@ function addTask(){
 
 function updateTask(){
 // Click on task text to update it or checkbox to update if it is done or not
+
 }
 
 function readTask(){
 // This function renders the current content on the array
 // It can be called by add, update and remove functions to update the DOM tree.
-
+  for(i=0; i<tasksDatabase.length; i++){
+  // Create list of all items from Database list  
+    var li= document.createElement("li");
+    console.log(tasksDatabase[i].task)
+    var text = document.createTextNode(tasksDatabase[i].task);
+    li.classList.add("taskItem");
+    li.appendChild(text);
+    tasksList.appendChild(li);
+  }
 }
 
 function removeTask(){
