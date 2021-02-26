@@ -16,6 +16,7 @@
       </p>
       <form id="task-form">
         <input type="text" id="task-input" placeholder="Type your task here"/>
+        <input type="submit"/>
       </form>
     </div>
     <div class="container tasks-holder">
@@ -27,9 +28,9 @@
 <script src="https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20171210/classList.min.js"></script>
 <script>
 var tasksList = document.getElementById("tasks-list");
-var taskItem = document.getElementsByClassName("task-item"); 
+var taskItem = document.getElementsByClassName("task-item");
 
-
+// Console based manipulation 
 // Create DOM element
 var li = document.createElement("li");
 var text = document.createTextNode("Task element.");
@@ -37,8 +38,6 @@ li.classList.add("task-item");
 li.appendChild(text)
 tasksList.appendChild(li)
 console.log(tasksList)
-
-
 
 // Read DOM element
 var firstTask = taskItem[0];
@@ -53,6 +52,27 @@ firstTask.innerText = updatedTaskContent;
 // Delete DOM element
 tasksList.removeChild(secondTask)
 
+// End of console based manipulation 
+
+// Get input element from form
+var taskForm = document.getElementById("task-form");
+var taskInput = document.getElementById("task-input");
+
+taskForm.addEventListener("submit", function(e){
+  e.preventDefault();
+  addTask();
+});
+
+function addTask(){
+// Create DOM element
+var li = document.createElement("li");
+var text = document.createTextNode(taskInput.value);
+li.classList.add("task-item");
+li.appendChild(text)
+tasksList.appendChild(li)
+console.log(tasksList)
+//console.log(taskInput.value)
+}
 </script>
   </body>
 </html>
