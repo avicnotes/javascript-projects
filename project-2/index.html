@@ -63,9 +63,9 @@ var taskForm = document.getElementById("task-form");
 var taskInput = document.getElementById("task-input");
 
 var tasksDatabase = [
-  { task: "First task", state:0 },
-  { task: "Second task", state:1},
-  { task: "Third task", state: 0}
+  { task: "First task", id:1, state:0},
+  { task: "Second task", id:2, state:1},
+  { task: "Third task", id:3, state: 0}
 ]
 
 taskForm.addEventListener("submit", function(e){
@@ -76,7 +76,7 @@ taskForm.addEventListener("submit", function(e){
 function addTask(){
 // Add task to an array of tasks, each task has a 1 or O to indicate that the task is done
 // [{task:"", state:1}, task:"", state:0}]
-  tasksDatabase.push({task: taskInput.value, state:0});
+  tasksDatabase.push({task: taskInput.value, id: tasksDatabase.length+1, state:0});
   readTasks();
 }
 
@@ -100,18 +100,17 @@ function readTasks(){
   for(i=0; i<tasksDatabase.length; i++){
   // Create list of all items from Database list  
     var li= document.createElement("li");
-    console.log(tasksDatabase[i].task)
+    console.log(tasksDatabase[i].id)
     var text = document.createTextNode(tasksDatabase[i].task);
     li.classList.add("taskItem");
-    li.addEventListener("click", function(){ console.log("li"); });
+    li.addEventListener("click", function(){ console.log(tasksDatabase.id); });
     li.appendChild(text);
     tasksList.appendChild(li);
   // add a button
     var button = document.createElement("button");
     button.innerHTML = "X";
     button.classList.add("task-button");
-    button.addEventListener("click", function(){ console.log("b"); });
-    // li.appendChild(button);
+    button.addEventListener("click", function(){ console.log(tasksDatabase.id); });
     li.insertAdjacentElement("afterend", button);
     console.log(li)
   }
