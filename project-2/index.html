@@ -63,30 +63,33 @@ var tasksDatabase = [
   { task: "Second task", state:1},
   { task: "Third task", state: 0}
 ]
+
 taskForm.addEventListener("submit", function(e){
   e.preventDefault();
   addTask();
-readTask();
 });
 
 function addTask(){
 // Add task to an array of tasks, each task has a 1 or O to indicate that the task is done
 // [{task:"", state:1}, task:"", state:0}]
-
-// Create DOM element
-  var li = document.createElement("li");
-  var text = document.createTextNode(taskInput.value);
-  li.classList.add("task-item");
-  li.appendChild(text)
-  tasksList.appendChild(li)
+  tasksDatabase.push({task: taskInput.value, state:0});
+  readTasks();
 }
-
 function updateTask(){
 // Click on task text to update it or checkbox to update if it is done or not
 
 }
 
-function readTask(){
+// function Clears the whole DOM list waiting to update it with current content
+function removeAllChildren(parent){
+  while(parent.firstChild){
+    parent.removeChild(parent.firstChild);
+  } 
+}
+
+function readTasks(){
+  removeAllChildren(tasksList);
+
 // This function renders the current content on the array
 // It can be called by add, update and remove functions to update the DOM tree.
   for(i=0; i<tasksDatabase.length; i++){
@@ -103,6 +106,12 @@ function readTask(){
 function removeTask(){
 // click on the x mark at the end to remove the item
 }
+
+const load = () => {
+  console.log("load event detected!");
+  readTasks();
+}
+window.onload = load;
 </script>
   </body>
 </html>
