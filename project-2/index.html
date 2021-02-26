@@ -12,11 +12,41 @@
         Javascript DOM CRUD Manipulation
       </h1>
       <p class="subtitle">
-        Open the Javascript console and begin the action.
+        What Tasks are you going to do today?
       </p>
+      <form id="task-form">
+        <input type="text" id="task-input" placeholder="Type your task here"/>
+      </form>
+    </div>
+    <div class="container tasks-holder">
+      <ul id="tasks-list">
+        <li class="task-item">First task element.</li>
+      </ul>
     </div>
   </section>
+<script src="https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20171210/classList.min.js"></script>
 <script>
+var tasksList = document.getElementById("tasks-list");
+ 
+
+// Create DOM element
+var li = document.createElement("li");
+var text = document.createTextNode("Task element.");
+li.classList.add("task-item");
+li.appendChild(text)
+tasksList.appendChild(li)
+console.log(tasksList)
+
+// Read DOM element
+//var first =
+
+/*
+var ul = document.getElementsByTagName("ul")[0];
+var li = document.createElement("li");
+var text = document.createTextNode("'li' element.");
+li.appendChild(text);
+ul.appendChild(li);
+*/
 
 </script>
   </body>
