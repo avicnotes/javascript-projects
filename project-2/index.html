@@ -45,6 +45,14 @@ var firstTask = taskItem[0];
 var secondTask = taskItem[1];
 console.log(firstTask);
 console.log(secondTask);
+
+// Update DOM element
+var updatedTaskContent = "Updated Task Element";
+firstTask.innerText = updatedTaskContent;
+
+// Delete DOM element
+tasksList.removeChild(secondTask)
+
 </script>
   </body>
 </html>
