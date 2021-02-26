@@ -124,7 +124,7 @@ function readTasks1(){
 }
 
 
-function readTasksx(){
+function readTasks(){
   removeAllChildren(tasksList);
 
 // This function renders the current content on the array
@@ -149,22 +149,21 @@ function readTasksx(){
 
 ////////
 const renderData = () => {
-removeAllChildren(newTasksList);
-tasksDatabase.forEach((taskData, index) => {
-  var taskP = document.createElement("p");
-  //Delete Button
-  const deleteButton = document.createElement("button") //create delete button
-  deleteButton.id = index
-  taskP.innerText = taskData.task;
-  deleteButton.innerText = "Delete" //make the delete button say "Delete"
+  removeAllChildren(newTasksList);
+  tasksDatabase.forEach((taskData, index) => {
+    var taskP = document.createElement("p");
+    //Delete Button
+    const deleteButton = document.createElement("button") //create delete button
+    deleteButton.id = index
+    taskP.innerText = taskData.task;
+    deleteButton.innerText = "Delete" //make the delete button say "Delete"
     deleteButton.addEventListener("click", event => {
       tasksDatabase.splice(index, 1) //remove the element at the current index
       renderData() //re-render the updated data to the DOM
     })
-  newTasksList.appendChild(taskP)
-  newTasksList.appendChild(deleteButton) //apend the delete button
-});
-
+    newTasksList.appendChild(taskP)
+    newTasksList.appendChild(deleteButton) //apend the delete button
+  });
 }
 /////
 
@@ -201,8 +200,8 @@ function removeTask(){
 
 const load = () => {
   console.log("load event detected!");
-  // readTasks();
-renderData()
+  readTasks();
+  renderData()
 
 }
 window.onload = load;
