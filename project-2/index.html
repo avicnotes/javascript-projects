@@ -27,7 +27,8 @@
 <script src="https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20171210/classList.min.js"></script>
 <script>
 var tasksList = document.getElementById("tasks-list");
- 
+var taskItem = document.getElementsByClassName("task-item"); 
+
 
 // Create DOM element
 var li = document.createElement("li");
@@ -37,8 +38,7 @@ li.appendChild(text)
 tasksList.appendChild(li)
 console.log(tasksList)
 
-// Read DOM element
-//var first =
+
 
 /*
 var ul = document.getElementsByTagName("ul")[0];
@@ -48,6 +48,11 @@ li.appendChild(text);
 ul.appendChild(li);
 */
 
+// Read DOM element
+var firstTask = taskItem[0];
+var secondTask = taskItem[1];
+console.log(firstTask);
+console.log(secondTask);
 </script>
   </body>
 </html>
