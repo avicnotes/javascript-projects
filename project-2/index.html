@@ -33,6 +33,9 @@
      <div id="new-tasks-list">
      <p>Look</p>
      </div>
+     <div id="list">
+     <p>Look</p>
+     </div>
     </div>
   </section>
 <script src="https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20171210/classList.min.js"></script>
@@ -41,7 +44,7 @@ var tasksList = document.getElementById("tasks-list");
 var taskItem = document.getElementsByClassName("task-item");
 var taskButton = document.getElementsByClassName("task-button");
 var newTasksList= document.getElementById("new-tasks-list");
-
+var list= document.getElementById("list");
 // Console based manipulation 
 // Create DOM element
 var li = document.createElement("li");
@@ -154,15 +157,19 @@ const renderData = () => {
     var taskP = document.createElement("p");
     //Delete Button
     const deleteButton = document.createElement("button") //create delete button
+    const editButton = document.createElement("button") // Create edit button
     deleteButton.id = index
+    editButton.id = index
     taskP.innerText = taskData.task;
     deleteButton.innerText = "Delete" //make the delete button say "Delete"
+    editButton.innerText = "Edit"
     deleteButton.addEventListener("click", event => {
       tasksDatabase.splice(index, 1) //remove the element at the current index
       renderData() //re-render the updated data to the DOM
     })
     newTasksList.appendChild(taskP)
     newTasksList.appendChild(deleteButton) //apend the delete button
+    // newTaskList.appendChild(editButton)
   });
 }
 /////
@@ -201,12 +208,52 @@ function removeTask(){
 const load = () => {
   console.log("load event detected!");
   readTasks();
-  renderData()
+  renderData();
+  renderList();
 
 }
 window.onload = load;
 
 
+
+
+
+
+// Personally written down
+
+const renderList = () => {
+  removeAllChildren(list)
+  tasksDatabase.forEach((element, index) => {
+    // console.log(element.task);
+    // console.log(index);
+    // console.log(1)
+    elementsCreator(element, index);
+  });
+}
+
+function elementsCreator(item, index){
+  // Create Element
+    const taskText = document.createElement("p");
+    const delButton = document.createElement("button");
+    const edButton = document.createElement("button");
+    // Add text content
+    taskText.innerText = item.task ;
+    delButton.innerText = "Delete"
+    edButton.innerText = "Edit"
+    delButton.id = index
+    edButton.id = index
+    // Append 
+    list.appendChild(taskText)
+    list.appendChild(delButton)
+    list.appendChild(edButton)
+    // Activate delete button method
+     delButton.addEventListener("click", event => {
+        tasksDatabase.splice(index, 1) //remove the element at the current index from array
+        renderList() //re-render the updated data to the DOM
+      })
+}
+
+// Try Edit method next time
 
 </script>
   </body>
