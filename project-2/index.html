@@ -4,6 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Javascript DOM CRUD Manipulation</title>
+    <style type="text/css">
+      .hide-edit-component {
+        display: none;
+      }
+    </style>
   </head>
   <body>
   <section class="section">
@@ -260,30 +265,28 @@ function elementsCreator(item, index){
 
     editInput.value = "Liking it";
     updateButton.innerText = "Update";
+    
+    editInput.classList.add("hide-edit-component");
+    updateButton.classList.add("hide-edit-component");
 
     list.appendChild(editInput)
     list.appendChild(updateButton)
     
-    // editInput.id = index
-    // updateButton.id = index
-     // Activate update button
+    // Activate update button
     edButton.addEventListener("click", event => {
-      
-      // set value of input to that of task value
-      // taskInput.value = item.task;
-      // 
+      console.log(list)
+      editInput.classList.toggle("hide-edit-component");
+      updateButton.classList.toggle("hide-edit-component");
+    })
 
+    updateButton.addEventListener("click", event => {
+      item.task = editInput.value;
+      renderList();
     })
 }
 
 function editComponent(item, index) {
-  // const editInput = document.createElement("input");
-  // const updateButton = document.createElement("button");
-
-  // editInput.value = "Liking it";
-  // updateButton.innerText = "Update";
-  // list.appendChild(editInput)
-  // list.appendChild(updateButton)
+  
 }
 
 // Try Edit method next time
