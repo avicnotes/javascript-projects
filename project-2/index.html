@@ -228,6 +228,7 @@ const renderList = () => {
     // console.log(index);
     // console.log(1)
     elementsCreator(element, index);
+    // editComponent(element, index);
   });
 }
 
@@ -251,6 +252,38 @@ function elementsCreator(item, index){
         tasksDatabase.splice(index, 1) //remove the element at the current index from array
         renderList() //re-render the updated data to the DOM
       })
+
+
+    // Editing component
+    const editInput = document.createElement("input");
+    const updateButton = document.createElement("button");
+
+    editInput.value = "Liking it";
+    updateButton.innerText = "Update";
+
+    list.appendChild(editInput)
+    list.appendChild(updateButton)
+    
+    // editInput.id = index
+    // updateButton.id = index
+     // Activate update button
+    edButton.addEventListener("click", event => {
+      
+      // set value of input to that of task value
+      // taskInput.value = item.task;
+      // 
+
+    })
+}
+
+function editComponent(item, index) {
+  // const editInput = document.createElement("input");
+  // const updateButton = document.createElement("button");
+
+  // editInput.value = "Liking it";
+  // updateButton.innerText = "Update";
+  // list.appendChild(editInput)
+  // list.appendChild(updateButton)
 }
 
 // Try Edit method next time
