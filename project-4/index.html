@@ -25,8 +25,15 @@
 		substack.scrolling = "0";
 		substack.style.border= "none";
 		substack.style.background = "white";
-		// Add Iframe to webpage
-		loadSubscribe.appendChild(substack);
+		
+
+		// event to trigger iframe loading
+		buttonSubscribe.addEventListener("click", function(){
+			// Add Iframe to webpage
+			loadSubscribe.appendChild(substack);
+			// Hide button
+			this.style.display = "none";
+		})
 	</script>
 </body>
 </html>
