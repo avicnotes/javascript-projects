@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Subscribe Button Load Iframe</title>
+</head>
+<body>
+	<!-- style="display:flex; justify-content: center;" -->
+	<div id="load-subscribe" >
+		<button id="subscribe">subscribe</button>
+		<!-- <iframe src="https://devpractical.substack.com/embed" width="400" height="100" style="border:none; background:white;" frameborder="0" scrolling="no"></iframe>	 -->
+	</div>
+
+	<script type="text/javascript">
+		var buttonSubscribe = document.getElementById("subscribe")
+		var loadSubscribe = document.getElementById("load-subscribe");
+
+		// create iframe
+		var substack = document.createElement("iframe");
+		// Add attributes
+		substack.src = "https://devpractical.substack.com/embed";
+		// Hide substack branding and border
+		substack.width = "400";
+		substack.height = "100";
+		substack.frameBorder ="0";
+		substack.scrolling = "0";
+		substack.style.border= "none";
+		substack.style.background = "white";
+		// Add Iframe to webpage
+		loadSubscribe.appendChild(substack);
+	</script>
+</body>
+</html>
