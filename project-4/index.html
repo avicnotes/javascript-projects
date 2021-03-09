@@ -10,29 +10,33 @@
 	</div>
 
 	<script type="text/javascript">
-		var buttonSubscribe = document.getElementById("subscribe")
-		var loadSubscribe = document.getElementById("load-subscribe");
+var buttonSubscribe = document.getElementById("subscribe")
+var loadSubscribe = document.getElementById("load-subscribe");
 
-		// create iframe
-		var substack = document.createElement("iframe");
-		// Add attributes
-		substack.src = "https://devpractical.substack.com/embed";
-		// Set size and hide iframe border
-		substack.width = "300";
-		substack.height = "150";
-		substack.frameBorder ="0";
-		substack.scrolling = "0";
-		substack.style.border= "none";
-		substack.style.background = "white";
-		
+// create iframe
+var substack = document.createElement("iframe");
+// Add attributes
+substack.src = "https://devpractical.substack.com/embed";
+// Set size and hide iframe border
+substack.width = "300";
+substack.height = "150";
+substack.frameBorder ="0";
+substack.scrolling = "0";
+substack.style.border= "none";
+substack.style.background = "white";
 
-		// event to trigger iframe loading
-		buttonSubscribe.addEventListener("click", function(){
-			// Add Iframe to webpage
-			loadSubscribe.appendChild(substack);
-			// Hide button
-			this.style.display = "none";
-		})
+
+// event to trigger iframe loading
+buttonSubscribe.addEventListener("click", function(){
+	// Add Iframe to webpage
+	loadSubscribe.appendChild(substack);
+	// Hide button
+	this.style.display = "none";
+})
+	</script>
+	<!-- minified script -->
+	<script type="text/javascript">
+		var buttonSubscribe=document.getElementById("subscribe"),loadSubscribe=document.getElementById("load-subscribe"),substack=document.createElement("iframe");substack.src="https://devpractical.substack.com/embed",substack.width="300",substack.height="150",substack.frameBorder="0",substack.scrolling="0",substack.style.border="none",substack.style.background="white",buttonSubscribe.addEventListener("click",function(){loadSubscribe.appendChild(substack),this.style.display="none"});
 	</script>
 </body>
 </html>
