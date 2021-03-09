@@ -4,10 +4,9 @@
 	<title>Subscribe Button Load Iframe</title>
 </head>
 <body>
-	<!-- style="display:flex; justify-content: center;" -->
-	<div id="load-subscribe" >
+	
+	<div id="load-subscribe" style="display:flex; justify-content: center;">
 		<button id="subscribe">subscribe</button>
-		<!-- <iframe src="https://devpractical.substack.com/embed" width="400" height="100" style="border:none; background:white;" frameborder="0" scrolling="no"></iframe>	 -->
 	</div>
 
 	<script type="text/javascript">
@@ -18,9 +17,9 @@
 		var substack = document.createElement("iframe");
 		// Add attributes
 		substack.src = "https://devpractical.substack.com/embed";
-		// Hide substack branding and border
-		substack.width = "400";
-		substack.height = "100";
+		// Set size and hide iframe border
+		substack.width = "300";
+		substack.height = "150";
 		substack.frameBorder ="0";
 		substack.scrolling = "0";
 		substack.style.border= "none";
